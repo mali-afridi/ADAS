@@ -10,10 +10,10 @@ The official implementation of our Final Year Project: Transformer Application o
 
 ## Method
 
-We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone
+We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone.
 We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. Lane Segmentation + Object Detection
 
-<p align="center"> <img src="docs/figures/clrernet_transformer_arch.jpg" height="400"\></p>
+<p align="center"> <img src="docs/figures/clrernet_transformer_arch.jpg" height="360"\></p>
 
 
 ## Performance
