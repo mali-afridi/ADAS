@@ -231,6 +231,7 @@ def main():
             broadcast_buffers=False,
         )
         outputs = multi_gpu_test(model, data_loader, args.tmpdir, args.gpu_collect)
+        import pdb; pdb.set_trace()
 
     rank, _ = get_dist_info()
     if rank == 0:

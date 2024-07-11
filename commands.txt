@@ -1,0 +1,47 @@
+python demo/image_demo.py demo/80.jpg configs/clrernet/culane/clrernet_culane_dla34_ema.py CLRerNet_Transformer20.pth --out-file=result.png
+
+python demo/image_demo.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R11.pth --out-file=d
+emo/ali2.png
+
+python demo/ali.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth --out-file=demo/ali2.png
+python demo/ali.py demo/ali.jpg configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transformer_D14.pth --out-file=demo/ali2.png
+python tools/Disb.py demo/ali.jpg configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transformer_D14.pth --out-file=demo/ali2.png
+python demo/sami.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth --out-file=demo/ali2.png 
+
+streamlit run demo/samiApp.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth -- --out-file=demo/ali2.png 
+
+python demo/ali2.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth --out-file=demo/ali2.png
+
+
+Final:
+
+python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transformer_D14.pth isb.txt --out-file=fyp_inference
+
+streamlit run demo/samiApp.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth -- --out-file=demo/ali2.png 
+
+streamlit run demo/samiApp.py demo/ali.jpg configs/clrernet/culane/clrernet_culane_rtdetr2.py ClrerNet_Transformer_D14.pth -- --out-file=demo/ali2.png 
+
+
+For github
+
+Download weights (BOth D14 and R14) and place it in main folder i.e. ADAS
+Download Islamabad Roads data and place it in main folder i.e. ADAS
+Downdload culaneyolo.zip and extract it in ADAS/dataset2/culaneyolo
+Download culane dataset and place the entire folder in ADAS/dataset2/culane
+
+docker-compose build --build-arg UID="`id -u`" dev
+docker-compose run --rm dev
+
+For dataloader based inference on culane:
+Light Model:
+python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transformer_D14.pth isb.txt --out-file=fyp_inference
+Heavy Model:
+python demo/ali.py configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth 
+
+This will save each inferenced culane image in result_dl folder if not given any --out-file directory
+
+For inference on frames of Isalamabad Roads:
+python demo/ali.py configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transformer_D14.pth
+This will save each frame in fyp_inference folder if not given any --out-file directory
+
+

@@ -1,15 +1,58 @@
 model = dict(
-    type="CLRerNet",
-    backbone=dict(
+    type="CLRerNet_Transformer2",
+    backbone2=dict(
         type="DLANet",
         dla="dla34",
-        pretrained=True,
+        pretrained=False,
     ),
+    backbone = dict(
+        type="PResNet",
+        depth= 50,
+        variant= 'd',
+        freeze_at= 0,
+        return_idx= [1, 2, 3],
+        num_stages=4,
+        freeze_norm= True,
+        pretrained= False,
+    ),
+    # backbone =dict(
+    #     type="DLANet",
+    #     dla="dla34",
+    #     pretrained=True,
+    # ),
+    # backbone = dict(),
     neck=dict(
         type="CLRerNetFPN",
         in_channels=[128, 256, 512],
+        # in_chlanesannels=[512, 1024, 2048],
         out_channels=64,
         num_outs=3,
+    ),
+    # neck2 = None,
+    encoder = dict(
+        type = "HybridEncoder",
+        # in_channels =[128, 256, 512],
+        in_channels= [512, 1024, 2048],
+        feat_strides= [8, 16, 32],
+
+        # intra
+        hidden_dim= 256,
+        use_encoder_idx= [2],
+        num_encoder_layers= 1,
+        nhead= 8,
+        dim_feedforward= 1024,
+        dropout= 0.,
+        enc_act= 'gelu',
+        pe_temperature= 10000,
+        
+        # cross
+        expansion= 1.0,
+        depth_mult= 1,
+        act= 'silu',
+
+        # eval
+        eval_spatial_size= [640, 640]
+  
     ),
     bbox_head=dict(
         type="CLRerHead",
@@ -18,8 +61,8 @@ model = dict(
             num_priors=192,
             num_points=72,
         ),
-        img_w=800,
-        img_h=320,
+        img_w=800, #800
+        img_h=320, #320
         prior_feat_channels=64,
         fc_hidden_dim=64,
         num_fc=2,
@@ -33,6 +76,7 @@ model = dict(
             lane_width=7.5 / 800,
             loss_weight=4.0,
         ),
+        # loss_seg = None,
         loss_seg=dict(
             type="CLRNetSegLoss",
             loss_weight=1.0,
@@ -40,6 +84,23 @@ model = dict(
             ignore_label=255,
             bg_weight=0.4,
         ),
+        evaluating=False
+    ),
+    # head2 = None,
+    decoder = dict(
+        type = "RTDETRTransformer",
+        feat_channels= [256, 256, 256],
+        feat_strides= [8, 16, 32],
+        hidden_dim= 256,
+        num_levels= 3,
+
+        num_queries= 300,
+
+        num_decoder_layers= 6,
+        num_denoising= 100,
+        
+        eval_idx= -1,
+        eval_spatial_size= [640, 640]
     ),
     # training and testing settings
     train_cfg=dict(
@@ -58,7 +119,7 @@ model = dict(
             ),
             iou_cost=dict(
                 type="LaneIoUCost",
-                lane_width=30 / 800,
+                lane_width=30 / 800, #800
                 use_pred_start_end=True,
                 use_giou=True,
             ),

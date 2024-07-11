@@ -1,36 +1,33 @@
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/clrernet-improving-confidence-of-lane/lane-detection-on-culane)](https://paperswithcode.com/sota/lane-detection-on-culane?p=clrernet-improving-confidence-of-lane)
+# Advanced Driver Assistance System
 
-# CLRerNet Official Implementation
-
-The official implementation of [our paper](https://arxiv.org/abs/2305.08366) "CLRerNet: Improving Confidence of Lane Detection with LaneIoU", by Hiroto Honda and Yusuke Uchida.
+The official implementation of our Final Year Project: Transformer Application on Computer Vision: Advanced Driver Assistance System
 
 ## What's New
 
-- **Code for training is available !** (Dec. 1, 2023)
-- **Our CLRerNet paper has been accepted to WACV2024 !** (Oct. 25, 2023)
-- LaneIoU loss and cost are published. ([PR#17](https://github.com/hirotomusiker/CLRerNet/pull/17), Oct.22, 2023)
+
+- Added support of streamlit and custom Isalamabad Roads Inference Visualization
 
 
 ## Method
 
-CLRerNet features LaneIoU for the target assignment cost and loss functions aiming at the improved quality of confidence scores.<br>
-LaneIoU takes the local lane angles into consideration to better correlate with the segmentation-based IoU metric.
+We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone
+We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. Lane Segmentation + Object Detection
 
-<p align="left"> <img src="docs/figures/clrernet.jpg" height="200"\></p>
-<p align="left"> <img src="docs/figures/laneiou.jpg" height="160"\></p>
+<p align="center"> <img src="clrernet_transformer_arch.jpg" height="200"\></p>
+
 
 ## Performance
 
-CLRerNet achieves the <b>state-of-the-art performance on CULane benchmark </b> significantly surpassing the baseline.
+Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state-of-the-art performance on COCO benchmark </b> significantly surpassing the original RT-DETR Resnet 34 backbone based results and maintaining the CULane benchmark at the same time!
 
-Model           | Backbone | F1 score | GFLOPs
----             | ---      | ---           | ---
-CLRNet        | DLA34    | 80.47  | 18.4
-[CLRerNet](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34.pth)        | DLA34    | 81.12&pm;0.04 <sup>*</sup>| 18.4
-[CLRerNet&#8902;](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34_ema.pth) | DLA34    | 81.43&pm;0.14 <sup>*</sup> | 18.4
+<p align="center"> <img src="quant.jpg" height="200"\></p>
+
+Download the weights: [RT-DETR-D34 (ours)](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34.pth) 
+Download the weights: [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) 
+Download the weights: [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
+Place the weights in the main folder i.e. ADAS
 
 
-\* F1 score stats of five models reported in our paper. The release models' scores are 81.11 (CLRerNet) and 81.55 (CLRerNet&#8902;, EMA model) respectively.
 
 ## Install
 
@@ -40,37 +37,54 @@ docker-compose build --build-arg UID="`id -u`" dev
 docker-compose run --rm dev
 ```
 
+
 See [Installation Tips](docs/INSTALL.md) for more details.
 
-## Inference
 
-Run the following command to detect the lanes from the image and visualize them:
+
+## Inference on Culane
+Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo
+Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
+The culane data structure is as follows: 
+
+ADAS/dataset2/culane/
+├── annotations_new/
+├── driver_23_30frame/
+├── driver_37_30frame/
+├── driver_100_30frame/
+├── driver_161_90frame/
+├── driver_182_30frame/
+├── driver_193_90frame/
+├── laneseg_label_w16/
+├── laneseg_label_w16_test/
+└── list/
+
+Run the following command to detect the objects and lanes from the image and visualize them:
+###Light Model CLRerNet-Transformer-D34
 ```bash
-python demo/image_demo.py demo/demo.jpg configs/clrernet/culane/clrernet_culane_dla34_ema.py clrernet_culane_dla34_ema.pth --out-file=result.png
+python demo/ali.py configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transformer_D14.pth
+```
+###Heavy Model CLRerNet-Transformer-R34
+```bash
+python demo/ali.py configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth 
+```
+This will save each frame in ADAS/result_dl folder if not given any --out-file directory
+
+## Inference on Islamabad Roads
+Download the text file for frames: [isb.txt](https://drive.google.com/file/d/1PHjSLfhfZelG6l8YIfHpvRwOeEQ_Zd8q/view?usp=sharing)
+Download the frame: [isb.zip](https://drive.google.com/file/d/1MuFyD5I1Nw6MHURHKsTBcLhPMYd8yrVN/view?usp=sharing)
+Extract isb.zip into ADAS/isb folder
+Run the following command to detect the objects and lanes from the image and visualize them:
+
+###Light Model CLRerNet-Transformer-D34
+```bash
+python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transformer_D14.pth isb.txt --out-file=fyp_inference
 ```
 
-## Test
-
-Run the following command to evaluate the model on CULane dataset:
-
-```bash
-python tools/test.py configs/clrernet/culane/clrernet_culane_dla34_ema.py clrernet_culane_dla34_ema.pth
-```
-
-For dataset preparation, please refer to [Dataset Preparation](docs/DATASETS.md).
-
-## Frame Difference Calculation
-
-Filtering out redundant frames during training helps the model avoid overfitting to them. We provide a simple calculator that outputs an npz file containing frame difference values.
-
-```bash
-python tools/calculate_frame_diff.py [culane_root_path]
-```
-
-Also you can find the npz file [[here]](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.2.0/train_diffs.npz).
+This will save each frame in ADAS/fyp_inference folder if not given any --out-file directory
 
 
-## Train
+## Train - To be updated
 
 Make sure that the frame difference npz file is prepared as `dataset/culane/list/train_diffs.npz`.<br>
 Run the following command to train a model on CULane dataset:
@@ -79,22 +93,11 @@ Run the following command to train a model on CULane dataset:
 python tools/train.py configs/clrernet/culane/clrernet_culane_dla34.py
 ```
 
-## Citation
-
-```BibTeX
-@article{honda2023clrernet,
-      title={CLRerNet: Improving Confidence of Lane Detection with LaneIoU},
-      author={Hiroto Honda and Yusuke Uchida},
-      journal={arXiv preprint arXiv:2305.08366},
-      year={2023},
-}
-```
 
 ## References
 
-* [Turoad/CLRNet](https://github.com/Turoad/CLRNet/)
-* [lucastabelini/LaneATT](https://github.com/lucastabelini/LaneATT)
-* [aliyun/conditional-lane-detection](https://github.com/aliyun/conditional-lane-detection)
+* [hirotomusiker/CLRerNet](https://github.com/hirotomusiker/CLRerNet)
+* [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR)
 * [CULane Dataset](https://xingangpan.github.io/projects/CULane.html)
 * [open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection)
 * [optn-mmlab/mmcv](https://github.com/open-mmlab/mmcv)

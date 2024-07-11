@@ -18,9 +18,9 @@ custom_imports = dict(
 
 cfg_name = "clrernet_culane_dla34.py"
 
-model = dict(test_cfg=dict(conf_threshold=0.41))
+model = dict(test_cfg=dict(conf_threshold=0.1))
 
-total_epochs = 15
+total_epochs = 70
 evaluation = dict(interval=3)
 checkpoint_config = dict(interval=total_epochs)
 

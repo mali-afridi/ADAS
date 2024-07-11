@@ -1,1 +1,4 @@
+from .clrernet_transformer import CLRerNet_Transformer
 from .clrernet import CLRerNet
+from .clrernet_transformer2 import CLRerNet_Transformer2
+from .clrernet_transformer3 import CLRerNet_Transformer3

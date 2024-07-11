@@ -70,6 +70,12 @@ class CLRerNetFPN(nn.Module):
               Example of shapes:
                 ([1, 64, 40, 100], [1, 64, 20, 50], [1, 64, 10, 25]).
         """
+        # print(inputs[0].shape)
+        # print(inputs[1].shape)
+        # print(inputs[2].shape)
+        # print(inputs[3].shape)
+        
+        # print(len(self.in_channels))
         if type(inputs) == tuple:
             inputs = list(inputs)
 
@@ -80,6 +86,7 @@ class CLRerNetFPN(nn.Module):
                 del inputs[0]
 
         # build laterals
+        # import pdb; pdb.set_trace()
         laterals = [
             lateral_conv(inputs[i + self.start_level])
             for i, lateral_conv in enumerate(self.lateral_convs)

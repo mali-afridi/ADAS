@@ -34,12 +34,14 @@ RUN pip install torchvision==${TORCHVISION_VERSION}
 ARG MIM_VERSION
 ARG MMCV_VERSION
 RUN pip install -U openmim==${MIM_VERSION}
-RUN mim install mmcv-full==${MMCV_VERSION}
-
+#RUN mim install mmcv-full==${MMCV_VERSION}
+RUN mim install mmcv-full==${MMCV_VERSION} 
+#RUN pip install wandb == ${WANDB_VERSION}
 # mmdet
 ARG MMDET_VERSION
 WORKDIR /home/docker/
 RUN pip install Cython
+RUN pip install streamlit
 RUN git clone https://github.com/open-mmlab/mmdetection.git mmdetection -b v${MMDET_VERSION} --depth 1
 WORKDIR /home/docker/mmdetection
 ENV FORCE_CUDA="1"
