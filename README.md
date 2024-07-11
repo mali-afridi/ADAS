@@ -52,23 +52,14 @@ The culane data structure is as follows:
 ADAS/dataset2/culane/
 
 ├── annotations_new/
-
 ├── driver_23_30frame/
-
 ├── driver_37_30frame/
-
 ├── driver_100_30frame/
-
 ├── driver_161_90frame/
-
 ├── driver_182_30frame/
-
 ├── driver_193_90frame/
-
 ├── laneseg_label_w16/
-
 ├── laneseg_label_w16_test/
-
 └── list/
 
 
@@ -82,6 +73,8 @@ python demo/ali.py configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transfor
 python demo/ali.py configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth 
 ```
 This will save each frame in ADAS/result_dl folder if not given any --out-file directory
+
+Example Output: [result_dl.zip](https://drive.google.com/file/d/1Mmh3TnwP9Z7YAaUUhhgOx6uSkChW6T6o/view?usp=sharing)
 
 ## Inference on Islamabad Roads
 <p align="center"> <img src="docs/figures/fyp670.png" height="200"\></p>
