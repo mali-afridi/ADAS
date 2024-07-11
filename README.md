@@ -70,6 +70,7 @@ python demo/ali.py configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Tr
 This will save each frame in ADAS/result_dl folder if not given any --out-file directory
 
 ## Inference on Islamabad Roads
+<p align="center"> <img src="docs/figures/fyp670.png" height="200"\></p>
 Download the text file for frames: [isb.txt](https://drive.google.com/file/d/1PHjSLfhfZelG6l8YIfHpvRwOeEQ_Zd8q/view?usp=sharing)
 Download the frame: [isb.zip](https://drive.google.com/file/d/1MuFyD5I1Nw6MHURHKsTBcLhPMYd8yrVN/view?usp=sharing)
 Extract isb.zip into ADAS/isb folder
