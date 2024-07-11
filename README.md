@@ -13,18 +13,16 @@ The official implementation of our Final Year Project: Transformer Application o
 We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone
 We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. Lane Segmentation + Object Detection
 
-<p align="center"> <img src="clrernet_transformer_arch.jpg" height="200"\></p>
+<p align="center"> <img src="docs/figures/clrernet_transformer_arch.jpg" height="200"\></p>
 
 
 ## Performance
 
 Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state-of-the-art performance on COCO benchmark </b> significantly surpassing the original RT-DETR Resnet 34 backbone based results and maintaining the CULane benchmark at the same time!
 
-<p align="center"> <img src="quant.jpg" height="200"\></p>
+<p align="center"> <img src="docs/figures/quant.jpg" height="200"\></p>
 
-Download the weights: [RT-DETR-D34 (ours)](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34.pth) 
-Download the weights: [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) 
-Download the weights: [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
+Download the weights: [RT-DETR-D34 (ours)](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34.pth) [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
 Place the weights in the main folder i.e. ADAS
 
 
