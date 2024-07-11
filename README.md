@@ -22,7 +22,7 @@ Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state
 
 <p align="center"> <img src="docs/figures/quant.png" height="240"\></p>
 
-Download the weights: [RT-DETR-D34 (ours)](https://drive.google.com/file/d/1zlp5hFnF8Jfx4aaX1zILa6fB0CA6ONV6/view?usp=sharing) [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
+Download the weights: [RT-DETR-D34 (ours)](https://drive.google.com/file/d/1zlp5hFnF8Jfx4aaX1zILa6fB0CA6ONV6/view?usp=sharing), [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing), [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
 Place the weights in the main folder i.e. ADAS
 
 
@@ -86,6 +86,7 @@ python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transfo
 ```
 
 This will save each frame in ADAS/fyp_inference folder if not given any --out-file directory
+
 Example Output: [fyp_inference.zip](https://drive.google.com/file/d/1Q6ZNDAZrpk0pbHWM0lirgIAnUesy353C/view?usp=sharing)
 
 ## Train - To be updated
