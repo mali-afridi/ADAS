@@ -22,7 +22,7 @@ Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state
 
 <p align="center"> <img src="docs/figures/quant.png" height="240"\></p>
 
-Download the weights: [RT-DETR-D34 (ours)](https://github.com/hirotomusiker/CLRerNet/releases/download/v0.1.0/clrernet_culane_dla34.pth) [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
+Download the weights: [RT-DETR-D34 (ours)](https://drive.google.com/file/d/1zlp5hFnF8Jfx4aaX1zILa6fB0CA6ONV6/view?usp=sharing) [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing) [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
 Place the weights in the main folder i.e. ADAS
 
 
@@ -42,9 +42,12 @@ See [Installation Tips](docs/INSTALL.md) for more details.
 
 ## Inference on Culane
 <p align="center"> <img src="docs/figures/35.jpg" height="200"\></p>
+
 Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo
 Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
 The culane data structure is as follows: 
+
+
 
 ADAS/dataset2/culane/
 ├── annotations_new/
@@ -71,6 +74,7 @@ This will save each frame in ADAS/result_dl folder if not given any --out-file d
 
 ## Inference on Islamabad Roads
 <p align="center"> <img src="docs/figures/fyp670.png" height="200"\></p>
+
 Download the text file for frames: [isb.txt](https://drive.google.com/file/d/1PHjSLfhfZelG6l8YIfHpvRwOeEQ_Zd8q/view?usp=sharing)
 Download the frame: [isb.zip](https://drive.google.com/file/d/1MuFyD5I1Nw6MHURHKsTBcLhPMYd8yrVN/view?usp=sharing)
 Extract isb.zip into ADAS/isb folder
@@ -82,7 +86,7 @@ python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transfo
 ```
 
 This will save each frame in ADAS/fyp_inference folder if not given any --out-file directory
-
+Example Output: [fyp_inference.zip](https://drive.google.com/file/d/1Q6ZNDAZrpk0pbHWM0lirgIAnUesy353C/view?usp=sharing)
 
 ## Train - To be updated
 
