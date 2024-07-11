@@ -50,16 +50,27 @@ The culane data structure is as follows:
 
 
 ADAS/dataset2/culane/
+
 ├── annotations_new/
+
 ├── driver_23_30frame/
+
 ├── driver_37_30frame/
+
 ├── driver_100_30frame/
+
 ├── driver_161_90frame/
+
 ├── driver_182_30frame/
+
 ├── driver_193_90frame/
+
 ├── laneseg_label_w16/
+
 ├── laneseg_label_w16_test/
+
 └── list/
+
 
 Run the following command to detect the objects and lanes from the image and visualize them:
 ##### Light Model CLRerNet-Transformer-D34
