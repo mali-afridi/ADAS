@@ -58,11 +58,11 @@ ADAS/dataset2/culane/
 └── list/
 
 Run the following command to detect the objects and lanes from the image and visualize them:
-###Light Model CLRerNet-Transformer-D34
+### Light Model CLRerNet-Transformer-D34
 ```bash
 python demo/ali.py configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transformer_D14.pth
 ```
-###Heavy Model CLRerNet-Transformer-R34
+### Heavy Model CLRerNet-Transformer-R34
 ```bash
 python demo/ali.py configs/clrernet/culane/clrernet_culane_rtdetr.py ClrerNet_Transformer_R14.pth 
 ```
@@ -74,7 +74,7 @@ Download the frame: [isb.zip](https://drive.google.com/file/d/1MuFyD5I1Nw6MHURHK
 Extract isb.zip into ADAS/isb folder
 Run the following command to detect the objects and lanes from the image and visualize them:
 
-###Light Model CLRerNet-Transformer-D34
+### Light Model CLRerNet-Transformer-D34
 ```bash
 python tools/Disb.py configs/clrernet/culane/rtdetr_clrernet.py ClrerNet_Transformer_D14.pth isb.txt --out-file=fyp_inference
 ```
