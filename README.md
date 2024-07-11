@@ -41,6 +41,7 @@ See [Installation Tips](docs/INSTALL.md) for more details.
 
 
 ## Inference on Culane
+<p align="center"> <img src="docs/figures/35.jpg" height="200"\></p>
 Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo
 Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
 The culane data structure is as follows: 
@@ -56,7 +57,7 @@ ADAS/dataset2/culane/
 ├── laneseg_label_w16/
 ├── laneseg_label_w16_test/
 └── list/
-<p align="left"> <img src="docs/figures/35.jpg" height="200"\></p>
+
 Run the following command to detect the objects and lanes from the image and visualize them:
 ##### Light Model CLRerNet-Transformer-D34
 ```bash
