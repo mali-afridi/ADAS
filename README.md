@@ -4,17 +4,14 @@ The official implementation of our Final Year Project: Transformer Application o
 
 ## What's New
 
-
 - Added support of streamlit and custom Isalamabad Roads Inference Visualization
-
-
+- 
 ## Method
 
 We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone.
 We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. Lane Segmentation + Object Detection
 
 <p align="center"> <img src="docs/figures/clrernet_transformer_arch.jpg" height="430"\></p>
-
 
 ## Performance
 
@@ -23,9 +20,7 @@ Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state
 <p align="center"> <img src="docs/figures/quant.png" height="200"\></p>
 
 Download the weights: [RT-DETR-D34 (ours)](https://drive.google.com/file/d/1zlp5hFnF8Jfx4aaX1zILa6fB0CA6ONV6/view?usp=sharing), [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing), [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
-Place the weights in the main folder i.e. ADAS
-
-
+Place the weights in the main folder i.e. ADAS/
 
 ## Install
 
@@ -34,19 +29,14 @@ Docker environment is recommended for installation:
 docker-compose build --build-arg UID="`id -u`" dev
 docker-compose run --rm dev
 ```
-
-
 See [Installation Tips](docs/INSTALL.md) for more details.
 
-
-
-## Inference on Culane
+## Inference on Culane Test Dataset
 <p align="center"> <img src="docs/figures/35.jpg" height="200"\></p>
 
-Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo
+Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo.
 Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
 The culane data along with the culaneyolo structure is as follows: 
-
 ```md
 ADAS/dataset2
 ├── culane
@@ -62,8 +52,8 @@ ADAS/dataset2
 │   └── list/
 └── culaneyolo
 ```
+Run the following command to detect the objects and lanes from the culane test images and visualize them:
 
-Run the following command to detect the objects and lanes from the image and visualize them:
 ##### Light Model CLRerNet-Transformer-D34
 ```bash
 python demo/ali.py configs/clrernet/culane/rtdetr_clrernet2.py ClrerNet_Transformer_D14.pth
