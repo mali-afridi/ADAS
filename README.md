@@ -17,7 +17,12 @@ We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. 
 
 Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state-of-the-art performance on COCO benchmark </b> significantly surpassing the original RT-DETR Resnet 34 backbone based results and maintaining the CULane benchmark at the same time!
 
-<p align="center"> <img src="docs/figures/quant.png" height="200"\></p>
+| Model                        | Backbone  | Task           | Dataset         | AP<sup>val</sup> | AP<sup>val50</sup> | Params (M) | FPS (1080ti) | FPS (1660ti) |
+|------------------------------|-----------|----------------|-----------------|------------------|-------------------|------------|--------------|--------------|
+| RT-DETR-R34                  | Resnet-34 | Object         | COCO            | 48.9             | 66.8              | 31         | 33.3         | 17.22        |
+| RT-DETR-D34 (ours)           | DLA-34    | Object         | COCO            | **49.8**         | **67.4**          | 33         | 32.9         | 17.10        |
+| CLRerNet-Transformer-D (ours)| DLA-34    | Object + Lane  | COCO CULane     | 49.8             | 67.4              | 49         | 32.9         | 16.70        |
+| CLRerNet-Transformer-R (ours)| Resnet50  | Object + Lane  | COCO            | 53.1             | 71.3              | 58         | 26.63        | 14.3         |
 
 Download the weights: [RT-DETR-D34 (ours)](https://drive.google.com/file/d/1zlp5hFnF8Jfx4aaX1zILa6fB0CA6ONV6/view?usp=sharing), [CLRerNet-Transformer-D34 (ours)](https://drive.google.com/file/d/1mmWenvdfSZ6I4HxXiBLRs6H_4T4U-VxN/view?usp=sharing), [CLRerNet-Transformer-R34 (ours)](https://drive.google.com/file/d/18gaNk7F1wyA16yMpk8WOjRse-GzC-WX7/view?usp=sharing)    
 Place the weights in the main folder i.e. ADAS/
