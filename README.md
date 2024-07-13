@@ -15,7 +15,7 @@ We then fuse this modified RT-DETR with CLRerNet to achieve multi modality i.e. 
 
 ## Performance
 
-Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state-of-the-art performance on COCO benchmark </b> surpassing the original RT-DETR Resnet 34 backbone based results and <b>maintaining the CULane benchmark<b> and model complexity for object detection at the same time!
+Our modified RT-DETR with DLA34 backbone (i.e RT-DETR-D34) achieves the <b>state-of-the-art performance on COCO benchmark </b> surpassing the original RT-DETR Resnet 34 backbone based results and <b>maintaining the CULane benchmark</b> and model complexity for object detection at the same time!
 
 | Model                        | Backbone  | Task           | Dataset         | AP<sup>val</sup> | AP<sup>val50</sup> | Params (M) | FPS (1080ti) | FPS (1660ti) |
 |------------------------------|-----------|----------------|-----------------|------------------|-------------------|------------|--------------|--------------|
