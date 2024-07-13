@@ -37,7 +37,7 @@ docker-compose run --rm dev
 See [Installation Tips](docs/INSTALL.md) for more details.
 
 ## Inference on Culane Test Dataset
-<p align="center"> <img src="docs/figures/35.jpg" height="200"\></p>
+<p align="center"> <img src="docs/figures/35.jpg" height="250"\></p>
 
 - Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo.
 - Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
@@ -72,7 +72,7 @@ This will save each frame in ADAS/result_dl folder if not given any --out-file d
 Example Output: [result_dl.zip](https://drive.google.com/file/d/1Mmh3TnwP9Z7YAaUUhhgOx6uSkChW6T6o/view?usp=sharing)
 
 ## Inference on Islamabad Roads
-<p align="center"> <img src="docs/figures/fyp670.png" height="200"\></p>
+<p align="center"> <img src="docs/figures/fyp670.png" height="250"\></p>
 
 Download the text file for frames: [isb.txt](https://drive.google.com/file/d/1PHjSLfhfZelG6l8YIfHpvRwOeEQ_Zd8q/view?usp=sharing)
 Download the frame: [isb.zip](https://drive.google.com/file/d/1MuFyD5I1Nw6MHURHKsTBcLhPMYd8yrVN/view?usp=sharing)
