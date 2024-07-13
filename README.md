@@ -5,7 +5,7 @@ The official implementation of our Final Year Project: Transformer Application o
 ## What's New
 
 - Added support of streamlit and custom Isalamabad Roads Inference Visualization
-- 
+  
 ## Method
 
 We modify Real Time Detection Transformer by replacing ResNet34 backbone into DLA34 backbone.
@@ -34,8 +34,8 @@ See [Installation Tips](docs/INSTALL.md) for more details.
 ## Inference on Culane Test Dataset
 <p align="center"> <img src="docs/figures/35.jpg" height="200"\></p>
 
-Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo.
-Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
+- Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo.
+- Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
 The culane data along with the culaneyolo structure is as follows: 
 ```md
 ADAS/dataset2
