@@ -45,23 +45,23 @@ See [Installation Tips](docs/INSTALL.md) for more details.
 
 Downdload [culaneyolo.zip](https://drive.google.com/file/d/15zoKQwY6jszATq_7td1OfOUG3Qpy-wR-/view?usp=sharing) and extract it in ADAS/dataset2/culaneyolo
 Download culane dataset and place the entire folder in ADAS/dataset2/culane. 
-The culane data structure is as follows: 
+The culane data along with the culaneyolo structure is as follows: 
 
-
-
-ADAS/dataset2/culane/
-
-├── annotations_new/
-├── driver_23_30frame/
-├── driver_37_30frame/
-├── driver_100_30frame/
-├── driver_161_90frame/
-├── driver_182_30frame/
-├── driver_193_90frame/
-├── laneseg_label_w16/
-├── laneseg_label_w16_test/
-└── list/
-
+```md
+ADAS/dataset2
+├── culane
+│   ├── annotations_new/
+│   ├── driver_23_30frame/
+│   ├── driver_37_30frame/
+│   ├── driver_100_30frame/
+│   ├── driver_161_90frame/
+│   ├── driver_182_30frame/
+│   ├── driver_193_90frame/
+│   ├── laneseg_label_w16/
+│   ├── laneseg_label_w16_test/
+│   └── list/
+└── culaneyolo
+```
 
 Run the following command to detect the objects and lanes from the image and visualize them:
 ##### Light Model CLRerNet-Transformer-D34
